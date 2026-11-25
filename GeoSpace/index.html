@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050a1b">
+<meta name="description" content="GIS Specialist portfolio — geospatial data, mine action support, cartography and spatial analysis.">
+<title>GIS Specialist | Geospatial Portfolio</title>
+<style>
+:root{--bg:#05091a;--panel:#0e1a32;--blue:#69aaff;--cyan:#54d7cf;--white:#f4f7ff;--muted:#aab8d0;--line:#8bbaff24}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}.container{width:min(1100px,calc(100% - 42px));margin:auto}
+/* Smooth language transition */
+[data-i18n]{transition:opacity .28s ease,transform .28s ease,filter .28s ease}
+.language-animating [data-i18n]{opacity:0;transform:translateY(7px);filter:blur(2px)}
+
+.topbar{position:sticky;top:0;z-index:10;background:#05091aeF;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:.04em;color:#dceaff}.brand span{color:var(--cyan)}
+.navlinks{display:flex;align-items:center;gap:23px;font-size:12px;color:#c2cee2}.navlinks a:hover{color:var(--cyan)}
+.langs{display:flex;gap:5px;padding:4px;border:1px solid #8bbaff35;border-radius:30px;background:#0b1730}.lang-btn{border:0;background:transparent;color:#aebed7;padding:7px 9px;border-radius:20px;font-size:10px;font-weight:800;cursor:pointer}.lang-btn.active{background:#69aaff;color:#07142b}
+.intro{min-height:calc(100svh - 68px);position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#10254d 0%,#09132d 36%,#05091a 72%)}
+.stars,.stars:before,.stars:after{position:absolute;inset:0;content:"";pointer-events:none;background-image:radial-gradient(1px 1px at 10% 20%,#b9d9ff 90%,transparent),radial-gradient(1px 1px at 28% 72%,#80b9ff 90%,transparent),radial-gradient(1.5px 1.5px at 75% 18%,#b7eaff 90%,transparent),radial-gradient(1px 1px at 86% 64%,#fff 90%,transparent),radial-gradient(1px 1px at 61% 83%,#7bbaff 90%,transparent);background-size:370px 300px;opacity:.45}
+.stars:before{transform:translate(90px,60px);opacity:.5}.stars:after{transform:translate(-50px,130px);opacity:.35}
+.globe-wrap{position:absolute;width:min(70vw,650px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-48%);border-radius:50%;filter:drop-shadow(0 0 50px #1d64cf55);opacity:.78}
+.globe-halo{position:absolute;inset:-7%;border-radius:50%;border:1px solid #4f91ff22;box-shadow:0 0 0 24px #387be00a,0 0 0 55px #387be008,inset 0 0 45px #3b85ff24}
+.globe{position:absolute;inset:7%;border-radius:50%;overflow:hidden;background:#071a35 url("https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg") center/cover no-repeat;box-shadow:inset -35px -10px 55px #02091c,inset 18px 12px 35px #9bd9ff22,0 0 50px #1f6bd766}
+.globe canvas{display:block;width:100%;height:100%;border-radius:50%;outline:none}
+.globe:before,.globe:after{content:none}
+.orbit{position:absolute;inset:-2% 0;border:1px solid #78baff42;border-radius:50%;transform:rotate(-23deg) scaleY(.34);box-shadow:0 0 18px #398eff12}.orbit.two{transform:rotate(34deg) scaleY(.48);border-color:#54d7cf45;box-shadow:0 0 18px #54d7cf12}
+.pin{position:absolute;width:7px;height:7px;border-radius:50%;background:#55e3d0;box-shadow:0 0 15px 4px #55e3d088}.pin.p1{left:17%;top:27%}.pin.p2{right:12%;top:55%}.pin.p3{left:29%;bottom:14%}
+.hero-content{position:relative;z-index:2;text-align:center;width:min(800px,calc(100% - 38px));padding:65px 0 75px;text-shadow:0 2px 22px #02091c}
+.eyebrow{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#b5d8ff;font-weight:800}
+h1{font-size:clamp(43px,7vw,78px);line-height:1.04;letter-spacing:-.055em;margin:20px 0 13px;font-weight:780}
+.subtitle{font-size:clamp(17px,2.5vw,25px);font-weight:650;color:#75b7ff;margin:0 0 20px}
+.description{max-width:650px;margin:0 auto;color:#d0d9eb;font-size:14px;line-height:1.85}
+.pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:23px 0 29px}.pills span{font-size:10px;color:#e2edff;border:1px solid #a9caff38;background:#0d1e3d9c;border-radius:30px;padding:8px 12px;backdrop-filter:blur(8px)}
+.buttons{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}.btn{padding:13px 22px;border-radius:30px;font-size:12px;font-weight:750;display:inline-flex;align-items:center;gap:9px;transition:.2s;cursor:pointer}.btn.primary{background:linear-gradient(110deg,#6db8ff,#4b8ff0);color:#06142b;box-shadow:0 7px 25px #4b9aff55}.btn.secondary{border:1px solid #c5d9ff66;background:#07132c88;color:#fff}.btn:hover{transform:translateY(-3px)}
+.section{padding:92px 0}.section.alt{background:#080f22}.section-top{text-align:center;margin-bottom:43px}.section-top small{color:#68b4ff;letter-spacing:.22em;font-size:10px;font-weight:800}.section-top h2{font-size:clamp(30px,5vw,46px);letter-spacing:-.04em;margin:12px 0}.section-top p{color:#9eacc4;font-size:14px;line-height:1.75;max-width:650px;margin:auto}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.feature{padding:25px 22px;background:linear-gradient(145deg,#10213d,#0b162c);border:1px solid var(--line);border-radius:16px;min-height:205px}.feature-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:#17365b;color:#76c9ff;font-size:21px;margin-bottom:18px}.feature h3{font-size:16px;margin:0 0 9px}.feature p{font-size:12px;line-height:1.75;color:var(--muted);margin:0}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.project{background:#0e1a32;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s}.project:hover{transform:translateY(-5px);border-color:#5ba7ff77}.project-art{height:205px;background:#132b4a;overflow:hidden;position:relative}.project-art svg{width:100%;height:100%;display:block}.project-info{padding:20px}.project-info small{font-size:9px;color:#65b8ff;letter-spacing:.17em;font-weight:800}.project-info h3{font-size:17px;margin:9px 0}.project-info p{font-size:12px;color:#aab8d0;line-height:1.7;margin:0}
+.about-layout{display:grid;grid-template-columns:1.4fr .8fr;gap:30px;align-items:start}.about-copy{color:#b5c2d8;font-size:13px;line-height:1.9}.about-copy p{margin:0 0 14px}.profile-card{background:linear-gradient(145deg,#10213d,#0b162c);border:1px solid var(--line);border-radius:17px;padding:24px}.profile-card .label{font-size:9px;letter-spacing:.16em;color:#72b9ff;font-weight:800;text-transform:uppercase}.profile-card h3{font-size:17px;line-height:1.5;margin:10px 0 5px}.profile-card p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}.profile-card .org{color:#dceaff;font-weight:650}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.skills span{border:1px solid #5c9fff38;padding:8px 11px;border-radius:20px;color:#cbdcff;font-size:10px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-card{display:flex;align-items:center;gap:16px;padding:22px;border-radius:15px;background:#0e1a32;border:1px solid var(--line);min-width:0}.contact-icon{flex:0 0 43px;height:43px;border-radius:13px;background:#17365b;display:grid;place-items:center;color:#7cc8ff;font-size:20px}.contact-card small{display:block;color:#7daedc;font-size:9px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-bottom:5px}.contact-card strong{font-size:13px;overflow-wrap:anywhere}.contact-card p{font-size:11px;color:var(--muted);margin:5px 0 0;line-height:1.5}.contact-card strong{display:inline-block}.contact-card:hover{border-color:#69aaff88;transform:translateY(-3px);transition:.2s}.contact-card{transition:.2s}
+footer{padding:23px 0;border-top:1px solid #ffffff12;color:#7385a4;font-size:10px}.foot{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:760px){.nav{padding:12px 0;flex-wrap:wrap}.navlinks{order:3;width:100%;justify-content:center;gap:17px;padding:4px 0 7px;font-size:11px}.langs{margin-left:auto}.intro{min-height:calc(100svh - 105px)}.globe-wrap{width:110vw;top:43%;opacity:1}.hero-content{padding:50px 0}.description{font-size:13px}.feature-grid,.project-grid{grid-template-columns:1fr}.project-art{height:220px}.about-layout{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.section{padding:72px 0}.foot{flex-direction:column;gap:8px}}
+@media(prefers-reduced-motion:no-preference){.orbit{animation:spin 52s linear infinite}.orbit.two{animation:spin 68s linear infinite reverse}@keyframes spin{to{rotate:360deg}}}
+
+/* Mobile navigation and contact refinements */
+@media(max-width:760px){
+  html{scroll-padding-top:112px}
+  .container{width:min(100% - 32px,600px)}
+  .topbar{background:rgba(5,9,26,.96);backdrop-filter:blur(18px)}
+  .nav{min-height:unset;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 12px;padding:12px 0 10px}
+  .brand{font-size:14px;white-space:nowrap}
+  .langs{grid-column:2;grid-row:1;gap:2px;padding:3px}
+  .lang-btn{font-size:10px;padding:7px 9px;min-width:34px}
+  .navlinks{grid-column:1 / -1;grid-row:2;order:initial;width:calc(100% + 32px);margin:0 -16px;padding:9px 16px 7px;display:flex;justify-content:flex-start;gap:9px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;white-space:nowrap;border-top:1px solid #ffffff12;font-size:12px}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{flex:0 0 auto;padding:8px 12px;border:1px solid #8bbaff24;border-radius:22px;background:#0b1730}
+  .navlinks a:active{background:#17365b;color:#fff}
+  #contact.section{padding:66px 0 72px}
+  #contact .section-top{margin-bottom:28px}
+  #contact .section-top small{font-size:10px;letter-spacing:.22em}
+  #contact .section-top h2{font-size:clamp(30px,8vw,42px);line-height:1.12;letter-spacing:-.045em;margin:13px 0 12px}
+  #contact .section-top p{max-width:35ch;margin:0 auto;font-size:15px;line-height:1.7}
+  .contact-grid{grid-template-columns:1fr;gap:13px}
+  .contact-card{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr) 18px;align-items:center;gap:13px;padding:18px 15px;min-height:112px;border-radius:17px;background:linear-gradient(135deg,#101f3b,#0c1830);border:1px solid #8bbaff35;box-shadow:0 10px 26px #00000018}
+  .contact-card:after{content:"↗";color:#75baff;font-size:18px;justify-self:end;align-self:center}
+  .contact-icon{width:48px;height:48px;flex-basis:48px;border-radius:14px;font-size:21px}
+  .contact-card small{font-size:9px;letter-spacing:.14em;margin-bottom:6px}
+  .contact-card strong{display:block;font-size:clamp(13px,3.7vw,15px);line-height:1.45;overflow-wrap:anywhere}
+  .contact-card p{font-size:12px;line-height:1.55;margin-top:5px}
+  .contact-card:hover{transform:none}
+  .contact-card:active{border-color:#69aaff;background:#142746}
+  .foot{padding:24px 0}
+}
+@media(max-width:380px){
+  .container{width:calc(100% - 26px)}
+  .brand{font-size:12px}
+  .lang-btn{padding:6px 7px;min-width:30px}
+  .navlinks{width:calc(100% + 26px);margin:0 -13px;padding-left:13px;padding-right:13px}
+  .contact-card{grid-template-columns:42px minmax(0,1fr) 14px;padding:15px 12px;gap:10px}
+  .contact-icon{width:42px;height:42px;flex-basis:42px}
+}
+
+
+/* Premium desktop layout + richer motion system */
+@media(min-width:1100px){
+  .container{width:min(1240px,calc(100% - 100px))}
+  .nav{min-height:82px}
+  .brand{font-size:17px}
+  .navlinks{gap:30px;font-size:13px}
+  .intro{min-height:calc(100svh - 82px);place-items:center start}
+  .globe-wrap{width:min(47vw,650px);left:auto;right:5%;top:50%;transform:translateY(-48%);opacity:.9}
+  .hero-content{width:min(600px,48%);margin-left:max(7vw,calc((100vw - 1240px)/2));padding:90px 0;text-align:left}
+  .hero-content .description{margin:0;max-width:550px}
+  .hero-content .pills,.hero-content .buttons{justify-content:flex-start}
+  h1{font-size:clamp(58px,5.4vw,86px)}
+  .section{padding:118px 0}
+  .section-top{margin-bottom:58px}
+  .section-top h2{font-size:clamp(42px,4vw,58px)}
+  .feature-grid,.project-grid{gap:24px}
+  .feature{padding:32px 29px;min-height:235px}
+  .project-art{height:245px}
+  .project-info{padding:25px}
+  .about-layout{grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}
+  .about-copy{font-size:15px}
+  .profile-card{padding:34px}
+  .contact-grid{gap:24px}
+  .contact-card{padding:30px;min-height:150px}
+  .contact-icon{width:54px;height:54px;flex-basis:54px}
+}
+@media(min-width:761px){
+  .topbar{transition:background .3s,box-shadow .3s}
+  .navlinks a{position:relative;padding:10px 0}
+  .navlinks a:after{content:"";position:absolute;left:0;right:100%;bottom:1px;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:right .28s}
+  .navlinks a:hover:after{right:0}
+  .feature,.project,.profile-card,.contact-card{position:relative;isolation:isolate;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .4s}
+  .feature:before,.project:before,.profile-card:before,.contact-card:before{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+    background:radial-gradient(450px circle at var(--mx,50%) var(--my,50%),#65b5ff20,transparent 45%);
+    transition:opacity .35s;z-index:-1
+  }
+  .feature:hover:before,.project:hover:before,.profile-card:hover:before,.contact-card:hover:before{opacity:1}
+  .feature:hover,.project:hover,.profile-card:hover,.contact-card:hover{
+    transform:translateY(-9px);border-color:#68b8ff88;box-shadow:0 22px 55px #0005,0 0 30px #398eff12
+  }
+  .feature-icon{transition:transform .45s cubic-bezier(.2,.8,.2,1),background .3s}
+  .feature:hover .feature-icon{transform:rotate(-8deg) scale(1.12);background:#1e4772}
+  .project-art svg{transition:transform .8s cubic-bezier(.2,.8,.2,1);transform-origin:center}
+  .project:hover .project-art svg{transform:scale(1.07)}
+  .contact-icon{transition:transform .4s,box-shadow .4s}
+  .contact-card:hover .contact-icon{transform:rotate(-7deg) scale(1.1);box-shadow:0 0 24px #5daaff35}
+}
+@media(prefers-reduced-motion:no-preference){
+  .stars{animation:star-drift 55s linear infinite}
+  .stars:before{animation:star-drift 75s linear infinite reverse}
+  .globe-halo{animation:halo-pulse 5s ease-in-out infinite}
+  .pin{animation:pin-pulse 2.4s ease-in-out infinite}
+  .pin.p2{animation-delay:.7s}.pin.p3{animation-delay:1.4s}
+  .eyebrow{animation:eyebrow-in .9s both}
+  .hero-content h1{animation:rise-in .9s .08s both}
+  .hero-content .subtitle{animation:rise-in .9s .18s both}
+  .hero-content .description{animation:rise-in .9s .28s both}
+  .hero-content .pills{animation:rise-in .9s .38s both}
+  .hero-content .buttons{animation:rise-in .9s .48s both}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .feature-grid .feature:nth-child(2),.project-grid .project:nth-child(2){transition-delay:.12s}
+  .feature-grid .feature:nth-child(3),.project-grid .project:nth-child(3){transition-delay:.24s}
+  @keyframes star-drift{to{background-position:370px 300px}}
+  @keyframes halo-pulse{50%{opacity:.55;transform:scale(1.035)}}
+  @keyframes pin-pulse{0%,100%{box-shadow:0 0 10px 2px #55e3d055}50%{box-shadow:0 0 22px 8px #55e3d0aa}}
+  @keyframes rise-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes eyebrow-in{from{opacity:0;letter-spacing:.5em}to{opacity:1;letter-spacing:.25em}}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+
+/* Crisp, photographic 3D Earth — no blur on the continents or surface */
+.globe-wrap{filter:drop-shadow(0 18px 58px #1d64cf55);opacity:1;will-change:filter}
+.globe{background-color:#06152d;background-image:url("https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg");background-position:center;background-size:cover;box-shadow:inset -34px -12px 48px #02091c99,inset 10px 8px 24px #b9e3ff18,0 0 64px #1f6bd766}
+.globe canvas{image-rendering:auto}
+@media(max-width:760px){.globe-wrap{opacity:1}.globe{inset:7%}}
+
+</style>
+</head>
+<body>
+<header class="topbar"><div class="container nav">
+  <a class="brand" href="#home">GEO<span>SPACE</span></a>
+  <nav class="navlinks"><a href="#focus" data-i18n="navFocus">Expertise</a><a href="#projects" data-i18n="navProjects">Projects</a><a href="#about" data-i18n="navAbout">About</a><a href="#contact" data-i18n="navContact">Contact</a></nav>
+  <div class="langs" aria-label="Language selection">
+    <button class="lang-btn active" data-lang="en" type="button">EN</button>
+    <button class="lang-btn" data-lang="az" type="button">AZ</button>
+    <button class="lang-btn" data-lang="tr" type="button">TR</button>
+  </div>
+</div></header>
+
+<main>
+<section class="intro" id="home">
+  <div class="stars"></div>
+  <div class="globe-wrap" aria-hidden="true"><div class="globe-halo"></div><div class="globe"><canvas id="earth-canvas" aria-label="Detailed rotating planet Earth"></canvas></div><div class="orbit"></div><div class="orbit two"></div><i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i></div>
+  <div class="hero-content">
+    <div class="eyebrow" data-i18n="eyebrow">GIS SPECIALIST · MINE ACTION GEOSPATIAL SUPPORT</div>
+    <h1 data-i18n="personName">Limunat Jafarova</h1>
+    <p class="subtitle" data-i18n="heroTitle">Turning Geospatial Data into Clear Decisions.</p>
+    <p class="description" data-i18n="heroDesc">GIS Specialist working with geographic information, spatial data and mapping workflows in the mine action field. Focused on turning complex location-based information into clear, reliable and useful insights.</p>
+    <div class="pills"><span>GIS &amp; Spatial Data</span><span data-i18n="pillMine">Mine Action Support</span><span data-i18n="pillAnalysis">Spatial Analysis</span><span data-i18n="pillCarto">Cartography</span></div>
+    <div class="buttons"><a class="btn primary" href="#projects" data-i18n="explore">Explore My Projects →</a><a class="btn secondary" href="#contact" data-i18n="contactMe">Contact Me</a></div>
+  </div>
+</section>
+
+<section class="section alt" id="focus"><div class="container">
+  <div class="section-top"><small data-i18n="focusEyebrow">PROFESSIONAL FOCUS</small><h2 data-i18n="focusTitle">Geospatial Expertise for Mine Action</h2><p data-i18n="focusDesc">A professional focus on managing, analysing and presenting geographic information to support operational understanding and informed decisions.</p></div>
+  <div class="feature-grid">
+    <article class="feature"><div class="feature-icon">⌖</div><h3 data-i18n="f1Title">Mine Action Geospatial Support</h3><p data-i18n="f1Desc">Geographic information workflows that help organise and communicate spatial information relevant to mine action operations.</p></article>
+    <article class="feature"><div class="feature-icon">▦</div><h3 data-i18n="f2Title">Spatial Data Management</h3><p data-i18n="f2Desc">Structured handling of geographic datasets, spatial attributes and map layers to support consistent GIS outputs.</p></article>
+    <article class="feature"><div class="feature-icon">◈</div><h3 data-i18n="f3Title">Mapping &amp; Spatial Analysis</h3><p data-i18n="f3Desc">Clear cartographic presentation and spatial analysis that make geographic patterns and information easier to understand.</p></article>
+  </div>
+</div></section>
+
+<section class="section" id="projects"><div class="container">
+  <div class="section-top"><small data-i18n="projectsEyebrow">SELECTED WORK</small><h2 data-i18n="projectsTitle">Projects &amp; Geospatial Work</h2><p data-i18n="projectsDesc">A visual showcase of GIS, cartographic and spatial-data work. Replace the sample project descriptions and illustrations with your own project details and approved screenshots.</p></div>
+  <div class="project-grid">
+    <article class="project"><div class="project-art"><svg viewBox="0 0 500 230" role="img" aria-label="Thematic map illustration"><rect width="500" height="230" fill="#142b47"/><path d="M0 30L500 190M-30 120L480 0M110 0L210 230M300 0L370 230M0 190L500 70" stroke="#a9c8d6" stroke-width="17" opacity=".65"/><path d="M0 30L500 190M-30 120L480 0M110 0L210 230M300 0L370 230M0 190L500 70" stroke="#345775" stroke-width="2"/><path d="M230 0L290 230" stroke="#56d8c4" stroke-width="7"/><circle cx="230" cy="90" r="8" fill="#f4c76b"/><circle cx="330" cy="145" r="6" fill="#f4c76b"/></svg></div><div class="project-info"><small>01 / <span data-i18n="catCarto">CARTOGRAPHY</span></small><h3 data-i18n="p1Title">Thematic Cartography</h3><p data-i18n="p1Desc">Map layout, geographic feature representation and visual hierarchy for clear communication.</p></div></article>
+    <article class="project"><div class="project-art"><svg viewBox="0 0 500 230"><rect width="500" height="230" fill="#11253d"/><path d="M0 0H500V230H0Z" fill="#1b4661"/><path d="M35 15L170 220M145 0L260 230M270 0L390 230M390 0L480 200M0 65L500 120M0 160L500 190" stroke="#d5e3dd" stroke-width="13"/><path d="M60 10L200 218L345 185L430 40Z" fill="#2a9d91" opacity=".55"/><path d="M70 20L195 195L335 168L414 49" fill="none" stroke="#8be0ce" stroke-width="3" stroke-dasharray="7 7"/></svg></div><div class="project-info"><small>02 / <span data-i18n="catSpatial">SPATIAL DATA</span></small><h3 data-i18n="p2Title">Spatial Data Visualisation</h3><p data-i18n="p2Desc">Organising and presenting geographic layers and attributes in a meaningful visual format.</p></div></article>
+    <article class="project"><div class="project-art"><svg viewBox="0 0 500 230"><rect width="500" height="230" fill="#10243d"/><g fill="none" stroke-width="2"><path d="M250 15C155 30 100 80 125 145S220 220 310 200 415 125 370 65 290 10 250 15Z" stroke="#55c9c0"/><path d="M250 42C180 55 140 95 155 145S235 195 300 180 380 125 345 80 280 35 250 42Z" stroke="#80baff"/><path d="M250 68C205 75 180 110 190 145S245 170 290 158 345 120 320 90 270 60 250 68Z" stroke="#d0e3ff"/></g><circle cx="255" cy="118" r="9" fill="#54d7cf"/><circle cx="255" cy="118" r="22" fill="none" stroke="#54d7cf" opacity=".45"/></svg></div><div class="project-info"><small>03 / <span data-i18n="catAnalysis">SPATIAL ANALYSIS</span></small><h3 data-i18n="p3Title">Geospatial Analysis</h3><p data-i18n="p3Desc">Spatial patterns and geographic relationships communicated through analytical map design.</p></div></article>
+  </div>
+</div></section>
+
+<section class="section alt" id="about"><div class="container">
+  <div class="section-top"><small data-i18n="aboutEyebrow">ABOUT ME</small><h2 data-i18n="aboutTitle">Professional Profile</h2></div>
+  <div class="about-layout">
+    <div class="about-copy">
+      <p data-i18n="aboutP1">I am a Geographic Information System (GIS) Specialist with a professional interest in geospatial data management, cartography and spatial analysis. My work centres on transforming geographic information into structured datasets and clear visual outputs that support practical understanding and decision-making.</p>
+      <p data-i18n="aboutP2">I currently work as a GIS Specialist at Delta Clearing Solutions LLC, in the context of the Mine Action Agency of the Republic of Azerbaijan (ANAMA). This role connects my GIS work with the mine action field, where reliable geographic information and clear spatial communication are important.</p>
+      <p data-i18n="aboutP3">I value accuracy, organised data workflows and thoughtful map design. I am interested in continuously developing my technical skills and contributing to projects where geospatial information can create practical value.</p>
+      <div class="skills"><span>ArcGIS Pro</span><span>QGIS</span><span>ArcGIS Online</span><span>Google Earth Engine</span><span>Spatial Data</span><span>Cartography</span><span>GIS Analysis</span></div>
+    </div>
+    <aside class="profile-card"><div class="label" data-i18n="currentRole">CURRENT POSITION</div><h3>GIS Specialist</h3><p class="org">Delta Clearing Solutions LLC</p><p data-i18n="anamaContext">Working in the context of the Mine Action Agency of the Republic of Azerbaijan (ANAMA)</p></aside>
+  </div>
+</div></section>
+
+<section class="section" id="contact"><div class="container">
+  <div class="section-top"><small data-i18n="contactEyebrow">LET'S CONNECT</small><h2 data-i18n="contactTitle">Contact &amp; Collaboration</h2><p data-i18n="contactDesc">For professional enquiries, project discussions and collaboration opportunities, feel free to get in touch.</p></div>
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:limunetceferova@gmail.com?subject=Professional%20Collaboration%20Inquiry"><div class="contact-icon">✉</div><div><small data-i18n="emailLabel">COLLABORATION EMAIL</small><strong>limunetceferova@gmail.com</strong><p data-i18n="emailHint">For project proposals, professional enquiries and collaboration opportunities.</p></div></a>
+    <a class="contact-card" href="https://www.linkedin.com/in/limunat-jafarova" target="_blank" rel="noopener noreferrer"><div class="contact-icon">in</div><div><small>LINKEDIN</small><strong data-i18n="linkedinLabel">View LinkedIn Profile</strong><p data-i18n="linkedinHint">Connect with me on LinkedIn for professional updates and networking.</p></div></a>
+  </div>
+</div></section>
+</main>
+<footer><div class="container foot"><span>© 2026 <span data-i18n="personName">Limunat Jafarova</span></span><span>GIS • MINE ACTION • GEOSPATIAL DATA</span></div></footer>
+
+<script>
+const translations = {
+en:{
+personName:"Limunat Jafarova",navFocus:"Expertise",navProjects:"Projects",navAbout:"About",navContact:"Contact",
+eyebrow:"GIS SPECIALIST · MINE ACTION GEOSPATIAL SUPPORT",heroTitle:"Turning Geospatial Data into Clear Decisions.",
+heroDesc:"GIS Specialist working with geographic information, spatial data and mapping workflows in the mine action field. Focused on turning complex location-based information into clear, reliable and useful insights.",
+pillMine:"Mine Action Support",pillAnalysis:"Spatial Analysis",pillCarto:"Cartography",explore:"Explore My Projects →",contactMe:"Contact Me",
+focusEyebrow:"PROFESSIONAL FOCUS",focusTitle:"Geospatial Expertise for Mine Action",focusDesc:"A professional focus on managing, analysing and presenting geographic information to support operational understanding and informed decisions.",
+f1Title:"Mine Action Geospatial Support",f1Desc:"Geographic information workflows that help organise and communicate spatial information relevant to mine action operations.",
+f2Title:"Spatial Data Management",f2Desc:"Structured handling of geographic datasets, spatial attributes and map layers to support consistent GIS outputs.",
+f3Title:"Mapping & Spatial Analysis",f3Desc:"Clear cartographic presentation and spatial analysis that make geographic patterns and information easier to understand.",
+projectsEyebrow:"SELECTED WORK",projectsTitle:"Projects & Geospatial Work",projectsDesc:"A visual showcase of GIS, cartographic and spatial-data work. Replace the sample project descriptions and illustrations with your own project details and approved screenshots.",
+catCarto:"CARTOGRAPHY",catSpatial:"SPATIAL DATA",catAnalysis:"SPATIAL ANALYSIS",p1Title:"Thematic Cartography",p1Desc:"Map layout, geographic feature representation and visual hierarchy for clear communication.",p2Title:"Spatial Data Visualisation",p2Desc:"Organising and presenting geographic layers and attributes in a meaningful visual format.",p3Title:"Geospatial Analysis",p3Desc:"Spatial patterns and geographic relationships communicated through analytical map design.",
+aboutEyebrow:"ABOUT ME",aboutTitle:"Professional Profile",
+aboutP1:"I am a Geographic Information System (GIS) Specialist with a professional interest in geospatial data management, cartography and spatial analysis. My work centres on transforming geographic information into structured datasets and clear visual outputs that support practical understanding and decision-making.",
+aboutP2:"I currently work as a GIS Specialist at Delta Clearing Solutions LLC, in the context of the Mine Action Agency of the Republic of Azerbaijan (ANAMA). This role connects my GIS work with the mine action field, where reliable geographic information and clear spatial communication are important.",
+aboutP3:"I value accuracy, organised data workflows and thoughtful map design. I am interested in continuously developing my technical skills and contributing to projects where geospatial information can create practical value.",
+currentRole:"CURRENT POSITION",anamaContext:"Working in the context of the Mine Action Agency of the Republic of Azerbaijan (ANAMA)",
+contactEyebrow:"LET'S CONNECT",contactTitle:"Contact & Collaboration",contactDesc:"For professional enquiries, project discussions and collaboration opportunities, feel free to get in touch.",
+emailLabel:"COLLABORATION EMAIL",emailPlaceholder:"limunetceferova@gmail.com",emailHint:"For project proposals, professional enquiries and collaboration opportunities.",linkedinLabel:"View LinkedIn Profile",linkedinHint:"Connect with me on LinkedIn for professional updates and networking."
+},
+az:{
+personName:"Limunət Cəfərova",navFocus:"İxtisaslaşma",navProjects:"Layihələr",navAbout:"Haqqımda",navContact:"Əlaqə",
+eyebrow:"GIS MÜTƏXƏSSİSİ · MİNA TƏMİZLƏMƏ SAHƏSİNDƏ GEO-MƏKAN DƏSTƏYİ",heroTitle:"Coğrafi məlumatları aydın qərarlara çevirirəm.",
+heroDesc:"Mina təmizləmə sahəsində coğrafi informasiya, məkan məlumatları və xəritələşdirmə prosesləri ilə çalışan GIS mütəxəssisi. Məqsədim mürəkkəb məkan məlumatlarını aydın, etibarlı və faydalı informasiyaya çevirməkdir.",
+pillMine:"Mina Təmizləmə Dəstəyi",pillAnalysis:"Məkan Analizi",pillCarto:"Kartoqrafiya",explore:"Layihələrimə bax →",contactMe:"Mənimlə əlaqə",
+focusEyebrow:"PEŞƏKAR İSTİQAMƏT",focusTitle:"Mina Təmizləmə Sahəsi üçün Geo-məkan Bacarıqları",focusDesc:"Əməliyyatların daha yaxşı anlaşılması və əsaslandırılmış qərarların dəstəklənməsi üçün coğrafi məlumatların idarə edilməsi, təhlili və vizuallaşdırılması.",
+f1Title:"Mina Təmizləmə üzrə GIS Dəstəyi",f1Desc:"Mina təmizləmə əməliyyatları ilə əlaqəli məkan məlumatlarının təşkili və təqdim edilməsinə kömək edən coğrafi informasiya iş axınları.",
+f2Title:"Məkan Məlumatlarının İdarə Edilməsi",f2Desc:"GIS nəticələrinin ardıcıl və etibarlı olması üçün coğrafi verilənlərin, məkan atributlarının və xəritə qatlarının sistemli idarə edilməsi.",
+f3Title:"Xəritələşdirmə və Məkan Analizi",f3Desc:"Coğrafi nümunələri və məlumatları daha anlaşıqlı edən kartoqrafik təqdimat və məkan təhlili.",
+projectsEyebrow:"SEÇİLMİŞ İŞLƏR",projectsTitle:"Layihələrim və Geo-məkan İşlərim",projectsDesc:"GIS, kartoqrafiya və məkan məlumatları üzrə işlərin vizual təqdimatı. Nümunə təsvirləri və illüstrasiyaları öz layihələrinizin detalları və paylaşılması təsdiqlənmiş ekran görüntüləri ilə əvəz edin.",
+catCarto:"KARTOQRAFİYA",catSpatial:"MƏKAN MƏLUMATLARI",catAnalysis:"MƏKAN ANALİZİ",p1Title:"Tematik Kartoqrafiya",p1Desc:"Aydın təqdimat üçün xəritə tərtibatı, coğrafi obyektlərin göstərilməsi və vizual iyerarxiya.",p2Title:"Məkan Məlumatlarının Vizuallaşdırılması",p2Desc:"Coğrafi qatların və atributların mənalı vizual formatda təşkili və təqdim edilməsi.",p3Title:"Geo-məkan Analizi",p3Desc:"Məkan qanunauyğunluqlarının və coğrafi əlaqələrin analitik xəritə dizaynı ilə təqdim edilməsi.",
+aboutEyebrow:"HAQQIMDA",aboutTitle:"Peşəkar Profil",
+aboutP1:"Mən coğrafi informasiya sistemləri (GIS) üzrə mütəxəssisəm. Peşəkar maraq dairəmə geo-məkan məlumatlarının idarə edilməsi, kartoqrafiya və məkan analizi daxildir. Fəaliyyətim coğrafi məlumatların sistemli verilənlərə və praktik anlaşmanı, qərarverməni dəstəkləyən aydın vizual nəticələrə çevrilməsinə yönəlib.",
+aboutP2:"Hazırda Azərbaycan Respublikasının Minatəmizləmə Agentliyinin (ANAMA) fəaliyyəti kontekstində Delta Clearing Solutions LLC şirkətində GIS Specialist vəzifəsində çalışıram. Bu vəzifə GIS fəaliyyətimi mina təmizləmə sahəsi ilə əlaqələndirir; burada etibarlı coğrafi məlumatlar və aydın məkan təqdimatı mühüm əhəmiyyət daşıyır.",
+aboutP3:"Dəqiqliyə, məlumatların sistemli idarə edilməsinə və düşünülmüş xəritə dizaynına önəm verirəm. Texniki bacarıqlarımı davamlı inkişaf etdirməyə və geo-məkan məlumatlarının praktik dəyər yaratdığı layihələrə töhfə verməyə çalışıram.",
+currentRole:"HAZIRKI VƏZİFƏ",anamaContext:"Azərbaycan Respublikasının Minatəmizləmə Agentliyinin (ANAMA) fəaliyyəti kontekstində",
+contactEyebrow:"ƏLAQƏ QURAQ",contactTitle:"Əlaqə və Əməkdaşlıq",contactDesc:"Peşəkar müraciətlər, layihə müzakirələri və əməkdaşlıq imkanları üçün mənimlə əlaqə saxlaya bilərsiniz.",
+emailLabel:"ƏMƏKDAŞLIQ ÜÇÜN E-POÇT",emailPlaceholder:"limunetceferova@gmail.com",emailHint:"Layihə təklifləri, peşəkar müraciətlər və əməkdaşlıq imkanları üçün.",linkedinLabel:"LinkedIn profilinə bax",linkedinHint:"Peşəkar yeniliklər və əlaqələr üçün LinkedIn-də mənimlə bağlantı qurun."
+},
+tr:{
+personName:"Limunet Caferova",navFocus:"Uzmanlık",navProjects:"Projeler",navAbout:"Hakkımda",navContact:"İletişim",
+eyebrow:"GIS UZMANI · MAYIN TEMİZLEME ALANINDA COĞRAFİ DESTEK",heroTitle:"Coğrafi Verileri Anlamlı Kararlara Dönüştürüyorum.",
+heroDesc:"Mayın temizleme alanında coğrafi bilgi, mekânsal veriler ve haritalama süreçleri üzerinde çalışan bir GIS uzmanıyım. Karmaşık konum verilerini açık, güvenilir ve faydalı bilgilere dönüştürmeye odaklanıyorum.",
+pillMine:"Mayın Temizleme Desteği",pillAnalysis:"Mekânsal Analiz",pillCarto:"Kartografya",explore:"Projelerimi İncele →",contactMe:"İletişime Geç",
+focusEyebrow:"UZMANLIK ALANI",focusTitle:"Mayın Temizleme için Coğrafi Bilgi Uzmanlığı",focusDesc:"Operasyonel anlayışı ve bilinçli kararları desteklemek için coğrafi bilgilerin yönetilmesi, analiz edilmesi ve sunulmasına odaklanan profesyonel yaklaşım.",
+f1Title:"Mayın Temizleme için GIS Desteği",f1Desc:"Mayın temizleme operasyonlarıyla ilgili mekânsal bilgilerin düzenlenmesine ve aktarılmasına yardımcı olan coğrafi bilgi iş akışları.",
+f2Title:"Mekânsal Veri Yönetimi",f2Desc:"Tutarlı GIS çıktıları için coğrafi veri kümelerinin, mekânsal özniteliklerin ve harita katmanlarının düzenli yönetimi.",
+f3Title:"Haritalama ve Mekânsal Analiz",f3Desc:"Coğrafi örüntüleri ve bilgileri daha anlaşılır kılan kartografik sunum ve mekânsal analiz.",
+projectsEyebrow:"SEÇİLMİŞ ÇALIŞMALAR",projectsTitle:"Projelerim ve Coğrafi Çalışmalar",projectsDesc:"GIS, kartografya ve mekânsal veri çalışmalarının görsel sunumu. Örnek açıklamaları ve çizimleri kendi proje ayrıntılarınız ve paylaşımı onaylanmış ekran görüntülerinizle değiştirin.",
+catCarto:"KARTOGRAFYA",catSpatial:"MEKÂNSAL VERİ",catAnalysis:"MEKÂNSAL ANALİZ",p1Title:"Tematik Kartografya",p1Desc:"Açık iletişim için harita düzeni, coğrafi unsurların gösterimi ve görsel hiyerarşi.",p2Title:"Mekânsal Veri Görselleştirme",p2Desc:"Coğrafi katmanların ve özniteliklerin anlamlı bir görsel formatta düzenlenmesi ve sunulması.",p3Title:"Coğrafi Analiz",p3Desc:"Mekânsal örüntülerin ve coğrafi ilişkilerin analitik harita tasarımıyla aktarılması.",
+aboutEyebrow:"HAKKIMDA",aboutTitle:"Profesyonel Profil",
+aboutP1:"Coğrafi Bilgi Sistemleri (GIS) uzmanıyım. Profesyonel ilgi alanlarım arasında coğrafi veri yönetimi, kartografya ve mekânsal analiz yer alıyor. Çalışmalarım, coğrafi bilgileri düzenli veri kümelerine ve pratik anlayışı, karar vermeyi destekleyen açık görsel çıktılara dönüştürmeye odaklanıyor.",
+aboutP2:"Şu anda Azerbaycan Cumhuriyeti Mayın Temizleme Ajansı (ANAMA) faaliyetleri bağlamında Delta Clearing Solutions LLC bünyesinde GIS Specialist olarak çalışıyorum. Bu görev, GIS çalışmalarımı güvenilir coğrafi bilginin ve açık mekânsal iletişimin önemli olduğu mayın temizleme alanıyla buluşturuyor.",
+aboutP3:"Doğruluğa, düzenli veri iş akışlarına ve özenli harita tasarımına önem veriyorum. Teknik becerilerimi sürekli geliştirmeyi ve coğrafi bilgilerin pratik değer yarattığı projelere katkıda bulunmayı hedefliyorum.",
+currentRole:"MEVCUT GÖREV",anamaContext:"Azerbaycan Cumhuriyeti Mayın Temizleme Ajansı (ANAMA) faaliyetleri bağlamında",
+contactEyebrow:"İLETİŞİMDE KALALIM",contactTitle:"İletişim ve İş Birliği",contactDesc:"Profesyonel sorular, proje görüşmeleri ve iş birliği fırsatları için benimle iletişime geçebilirsiniz.",
+emailLabel:"İŞ BİRLİĞİ E-POSTASI",emailPlaceholder:"limunetceferova@gmail.com",emailHint:"Proje teklifleri, profesyonel sorular ve iş birliği fırsatları için.",linkedinLabel:"LinkedIn Profilini Görüntüle",linkedinHint:"Profesyonel gelişmeler ve ağ kurma için LinkedIn üzerinden benimle bağlantı kurun."
+}
+};
+let activeLanguage=null;
+let languageTransitionTimer=null;
+function setLanguage(lang,animate=true){
+ const dict=translations[lang]||translations.en;
+ if(activeLanguage===lang)return;
+ const applyLanguage=()=>{
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.getAttribute("data-i18n");if(dict[key])el.textContent=dict[key];});
+  document.querySelectorAll(".lang-btn").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));
+  activeLanguage=lang;
+  try{localStorage.setItem("portfolio-language",lang)}catch(e){}
+  document.body.classList.remove("language-animating");
+ };
+ if(animate&&activeLanguage!==null){
+  if(languageTransitionTimer)clearTimeout(languageTransitionTimer);
+  document.body.classList.add("language-animating");
+  languageTransitionTimer=setTimeout(()=>{
+   applyLanguage();
+   languageTransitionTimer=null;
+  },180);
+ }else{
+  applyLanguage();
+ }
+}
+document.querySelectorAll(".lang-btn").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.lang,true)));
+let saved="en";try{saved=localStorage.getItem("portfolio-language")||"en"}catch(e){}
+setLanguage(saved,false);
+
+// Scroll reveal + subtle pointer lighting for desktop cards
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll(
+    ".section-top, .feature, .project, .about-copy, .profile-card, .contact-card"
+  );
+  revealTargets.forEach(el => el.classList.add("reveal"));
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+    revealTargets.forEach(el => observer.observe(el));
+  } else {
+    revealTargets.forEach(el => el.classList.add("visible"));
+  }
+
+  if (window.matchMedia("(min-width: 761px)").matches && !reduceMotion) {
+    document.querySelectorAll(".feature,.project,.profile-card,.contact-card").forEach(card => {
+      card.addEventListener("pointermove", event => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+        card.style.setProperty("--my", `${event.clientY - rect.top}px`);
+      });
+    });
+  }
+})();
+
+</script>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+
+const host = document.querySelector('.globe');
+const canvas = document.getElementById('earth-canvas');
+if (host && canvas) {
+  let renderer, observer, frameId;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(Math.max(1, host.clientWidth), Math.max(1, host.clientHeight), false);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.18;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+    camera.position.set(0, 0, 3.12);
+
+    const tiltGroup = new THREE.Group();
+    scene.add(tiltGroup);
+    const spinGroup = new THREE.Group();
+    tiltGroup.add(spinGroup);
+    const cloudGroup = new THREE.Group();
+    tiltGroup.add(cloudGroup);
+    tiltGroup.rotation.z = THREE.MathUtils.degToRad(23.4);
+
+    const loader = new THREE.TextureLoader();
+    loader.setCrossOrigin('anonymous');
+    const loadTexture = async (url) => {
+      try { return await loader.loadAsync(url); }
+      catch (e) { console.warn('Earth texture unavailable:', url, e); return null; }
+    };
+    const base = 'https://threejs.org/examples/textures/planets/';
+    const [dayMap, normalMap, specularMap, cloudMap] = await Promise.all([
+      loadTexture(base + 'earth_atmos_2048.jpg'),
+      loadTexture(base + 'earth_normal_2048.jpg'),
+      loadTexture(base + 'earth_specular_2048.jpg'),
+      loadTexture(base + 'earth_clouds_1024.png')
+    ]);
+    [dayMap, normalMap, specularMap, cloudMap].filter(Boolean).forEach(t => {
+      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    });
+    if (dayMap) dayMap.colorSpace = THREE.SRGBColorSpace;
+    if (cloudMap) cloudMap.colorSpace = THREE.SRGBColorSpace;
+
+    const earthMaterial = new THREE.MeshPhongMaterial({
+      map: dayMap || null,
+      normalMap: normalMap || null,
+      normalScale: new THREE.Vector2(0.72, 0.72),
+      specularMap: specularMap || null,
+      specular: new THREE.Color(0x526b85),
+      shininess: 18
+    });
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(1, 160, 160), earthMaterial);
+    spinGroup.add(earth);
+
+    // A separate, translucent cloud shell creates real parallax against the continents.
+    if (cloudMap) {
+      const cloudMaterial = new THREE.MeshPhongMaterial({
+        map: cloudMap, transparent: true, opacity: 0.52,
+        depthWrite: false, side: THREE.FrontSide,
+        blending: THREE.NormalBlending, shininess: 4,
+        specular: new THREE.Color(0x8eb8d8)
+      });
+      const clouds = new THREE.Mesh(new THREE.SphereGeometry(1.009, 160, 160), cloudMaterial);
+      clouds.name = 'Earth cloud layer';
+      cloudGroup.add(clouds);
+      window.__earthCloudLayer = clouds;
+    }
+
+    const ambient = new THREE.AmbientLight(0x9bb9d8, 0.78);
+    scene.add(ambient);
+    const sun = new THREE.DirectionalLight(0xfff4df, 2.55);
+    sun.position.set(-4, 2.4, 4.5);
+    scene.add(sun);
+    const fill = new THREE.DirectionalLight(0x477fbd, 0.42);
+    fill.position.set(3, -1.5, -3);
+    scene.add(fill);
+
+    // Thin blue atmospheric limb, with a softer outer glow shell.
+    const atmosphere = new THREE.Mesh(
+      new THREE.SphereGeometry(1.027, 128, 128),
+      new THREE.MeshBasicMaterial({ color: 0x5bbaff, side: THREE.BackSide, transparent: true, opacity: 0.19 })
+    );
+    tiltGroup.add(atmosphere);
+    const outerGlow = new THREE.Mesh(
+      new THREE.SphereGeometry(1.055, 96, 96),
+      new THREE.MeshBasicMaterial({ color: 0x267bd2, side: THREE.BackSide, transparent: true, opacity: 0.075 })
+    );
+    tiltGroup.add(outerGlow);
+
+    const resize = () => {
+      const w = Math.max(1, host.clientWidth), h = Math.max(1, host.clientHeight);
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    };
+    observer = new ResizeObserver(resize);
+    observer.observe(host);
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clock = new THREE.Clock();
+    const animate = () => {
+      frameId = requestAnimationFrame(animate);
+      const delta = Math.min(clock.getDelta(), 0.05);
+      if (!reduceMotion) {
+        // Calm, constant rotation in place: one full Earth turn in about 90 seconds.
+        spinGroup.rotation.y += delta * 0.0698;
+        cloudGroup.rotation.y += delta * 0.082;
+      }
+      renderer.render(scene, camera);
+    };
+    animate();
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(frameId);
+      else { clock.getDelta(); animate(); }
+    });
+  } catch (error) {
+    console.warn('3D Earth could not be initialized; showing the static Earth texture instead.', error);
+  }
+}
+</script>
+
+</body>
+</html>
